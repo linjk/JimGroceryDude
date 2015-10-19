@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "Item.h"
+
 #define debug 1
 
 @interface AppDelegate ()
@@ -39,11 +41,26 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self cdh];
+    [self demo];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[self cdh] saveContext];
+}
+
+-(void)demo{
+    if (debug == 1){
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    NSArray *newItemNames = [NSArray arrayWithObjects:@"Apples", @"Milk", @"Bread", @"Cheese", @"Butter", @"Cereal", @"Eggs", nil];
+    
+    for (NSString *newItemName in newItemNames) {
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:_coreDataHelper.context];
+        newItem.name = newItemName;
+        NSLog(@"Inserted new Managed Object for '%@'", newItem.name);
+    }
 }
 
 -(CoreDataHelper *)cdh{
