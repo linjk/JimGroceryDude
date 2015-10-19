@@ -57,6 +57,9 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
     NSSortDescriptor *sort  = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+    NSPredicate     *filter = [NSPredicate predicateWithFormat:@"name != %@", @"Apples"];
+    [request setPredicate:filter];
+    
     NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
     
     for (Item *item in fetchedObjects) {
