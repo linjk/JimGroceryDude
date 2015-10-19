@@ -15,7 +15,8 @@
 		CE6EF4F51BD4BCB90025CD67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF4F41BD4BCB90025CD67 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		CE6EF5051BD4BDA10025CD67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5031BD4BDA10025CD67 /* main.m */; settings = {ASSET_TAGS = (); }; };
 		CE6EF5081BD4BE3D0025CD67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5071BD4BE3D0025CD67 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
-		CE6EF50A1BD4BF4B0025CD67 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE6EF5091BD4BF4B0025CD67 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		CE6EF50C1BD4C41A0025CD67 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6EF50B1BD4C41A0025CD67 /* CoreData.framework */; };
+		CE6EF5111BD4C5050025CD67 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5101BD4C5050025CD67 /* CoreDataHelper.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,10 @@
 		CE6EF5031BD4BDA10025CD67 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Application/main.m; sourceTree = "<group>"; };
 		CE6EF5061BD4BE3D0025CD67 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		CE6EF5071BD4BE3D0025CD67 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
-		CE6EF5091BD4BF4B0025CD67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6EF50B1BD4C41A0025CD67 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CE6EF50F1BD4C5050025CD67 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = Model/coreData/CoreDataHelper.h; sourceTree = "<group>"; };
+		CE6EF5101BD4C5050025CD67 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = Model/coreData/CoreDataHelper.m; sourceTree = "<group>"; };
+		CE6EF5151BD4C8690025CD67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6EF50C1BD4C41A0025CD67 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +118,7 @@
 				CE6EF4FE1BD4BD200025CD67 /* Database */,
 				CE6EF4FF1BD4BD280025CD67 /* Utils */,
 				CE6EF5001BD4BD3A0025CD67 /* Catagories */,
-				CE6EF5011BD4BD6C0025CD67 /* Resource */,
+				CE6EF5011BD4BD6C0025CD67 /* Resources */,
 				CE6EF4BC1BD498FB0025CD67 /* Supporting Files */,
 				CE6EF4EF1BD4BBF90025CD67 /* LaunchScreen.storyboard */,
 				CE6EF4C51BD498FB0025CD67 /* Main.storyboard */,
@@ -125,6 +130,7 @@
 		CE6EF4BC1BD498FB0025CD67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EF50D1BD4C4290025CD67 /* Framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -150,7 +156,6 @@
 		CE6EF4F21BD4BCAC0025CD67 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EF5091BD4BF4B0025CD67 /* Info.plist */,
 				CE6EF5031BD4BDA10025CD67 /* main.m */,
 				CE6EF4F31BD4BCB90025CD67 /* AppDelegate.h */,
 				CE6EF4F41BD4BCB90025CD67 /* AppDelegate.m */,
@@ -184,6 +189,7 @@
 		CE6EF4FA1BD4BCF30025CD67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EF50E1BD4C4B90025CD67 /* coreData */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -230,11 +236,29 @@
 			name = Catagories;
 			sourceTree = "<group>";
 		};
-		CE6EF5011BD4BD6C0025CD67 /* Resource */ = {
+		CE6EF5011BD4BD6C0025CD67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EF5151BD4C8690025CD67 /* Info.plist */,
 			);
-			name = Resource;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CE6EF50D1BD4C4290025CD67 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EF50B1BD4C41A0025CD67 /* CoreData.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		CE6EF50E1BD4C4B90025CD67 /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EF50F1BD4C5050025CD67 /* CoreDataHelper.h */,
+				CE6EF5101BD4C5050025CD67 /* CoreDataHelper.m */,
+			);
+			name = coreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +364,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6EF50A1BD4BF4B0025CD67 /* Info.plist in Resources */,
 				CE6EF4F11BD4BBF90025CD67 /* LaunchScreen.storyboard in Resources */,
 				CE6EF4C91BD498FB0025CD67 /* Assets.xcassets in Resources */,
 				CE6EF4C71BD498FB0025CD67 /* Main.storyboard in Resources */,
@@ -370,6 +393,7 @@
 			files = (
 				CE6EF5081BD4BE3D0025CD67 /* ViewController.m in Sources */,
 				CE6EF5051BD4BDA10025CD67 /* main.m in Sources */,
+				CE6EF5111BD4C5050025CD67 /* CoreDataHelper.m in Sources */,
 				CE6EF4F51BD4BCB90025CD67 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,6 +621,7 @@
 				CE6EF4E81BD498FB0025CD67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE6EF4E91BD498FB0025CD67 /* Build configuration list for PBXNativeTarget "JimGroceryDudeTests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +630,7 @@
 				CE6EF4EB1BD498FB0025CD67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE6EF4EC1BD498FB0025CD67 /* Build configuration list for PBXNativeTarget "JimGroceryDudeUITests" */ = {
 			isa = XCConfigurationList;
@@ -613,6 +639,7 @@
 				CE6EF4EE1BD498FB0025CD67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
