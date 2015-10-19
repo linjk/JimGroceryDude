@@ -16,3 +16,5 @@
 * 13**Images.xcasets**
 * 14**Supporting Files**
 ***
+###工程说明
+《Core Data应用开发实践指南》一书学习
