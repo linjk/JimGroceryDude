@@ -54,15 +54,7 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    NSFetchRequest *request = [[[_coreDataHelper model] fetchRequestTemplateForName:@"Test"] copy];
-    NSSortDescriptor *sort  = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
-    
-    NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
-    
-    for (Item *item in fetchedObjects) {
-        NSLog(@"Fecthed Object: %@", item.name);
-    }
+    //
 }
 
 -(CoreDataHelper *)cdh{
