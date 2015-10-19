@@ -55,6 +55,8 @@
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSSortDescriptor *sort  = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
     
     for (Item *item in fetchedObjects) {
