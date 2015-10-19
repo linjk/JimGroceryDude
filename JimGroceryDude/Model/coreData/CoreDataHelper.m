@@ -80,9 +80,10 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
         return;
     }
     
+    NSDictionary *options = @{@"journal_mode":@"DELETE"};
     NSError *error = nil;
 
-    _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:nil error:&error];
+    _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:options error:&error];
     if (!_store) {
         NSLog(@"Failed to add store. Error: %@", error);
         abort();
