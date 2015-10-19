@@ -54,11 +54,9 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSFetchRequest *request = [[[_coreDataHelper model] fetchRequestTemplateForName:@"Test"] copy];
     NSSortDescriptor *sort  = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
-    NSPredicate     *filter = [NSPredicate predicateWithFormat:@"name != %@", @"Apples"];
-    [request setPredicate:filter];
     
     NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
     
