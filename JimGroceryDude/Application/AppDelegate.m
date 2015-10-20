@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "Item.h"
-#import "Measurement.h"
+#import "Amount.h"
 
 #define debug 1
 
@@ -55,12 +55,18 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    for (int i =1; i < 10; i++) {
-        Measurement *newMeasurement = [NSEntityDescription insertNewObjectForEntityForName:@"Measurement" inManagedObjectContext:_coreDataHelper.context];
-        newMeasurement.abc = [NSString stringWithFormat:@"-->> Lost Of Data: x%i", i];
-        NSLog(@"Insert %@", newMeasurement.abc);
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Amount"];
+    [request setFetchLimit:3];
+    NSError *error = nil;
+    NSArray *fetched = [_coreDataHelper.context executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"Error: %@", error);
     }
-    [_coreDataHelper saveContext];
+    else{
+        for (Amount *amount in fetched) {
+            NSLog(@"fetch: %@", amount.xyz);
+        }
+    }
 }
 
 -(CoreDataHelper *)cdh{

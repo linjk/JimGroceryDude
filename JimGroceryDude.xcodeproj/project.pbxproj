@@ -22,6 +22,9 @@
 		CE6EF5221BD4E0970025CD67 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5201BD4E0970025CD67 /* Item.m */; settings = {ASSET_TAGS = (); }; };
 		CE7DEC751BD5E14C00529BFD /* Measurement+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7DEC721BD5E14C00529BFD /* Measurement+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CE7DEC761BD5E14C00529BFD /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7DEC741BD5E14C00529BFD /* Measurement.m */; settings = {ASSET_TAGS = (); }; };
+		CE7DEC791BD5E2EE00529BFD /* Model2ToModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = CE7DEC781BD5E2EE00529BFD /* Model2ToModel3.xcmappingmodel */; settings = {ASSET_TAGS = (); }; };
+		CE7DEC7E1BD5E31C00529BFD /* Amount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7DEC7B1BD5E31C00529BFD /* Amount+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		CE7DEC7F1BD5E31C00529BFD /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7DEC7D1BD5E31C00529BFD /* Amount.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,12 @@
 		CE7DEC721BD5E14C00529BFD /* Measurement+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Measurement+CoreDataProperties.m"; path = "Model/DataModel/Measurement+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CE7DEC731BD5E14C00529BFD /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Measurement.h; path = Model/DataModel/Measurement.h; sourceTree = "<group>"; };
 		CE7DEC741BD5E14C00529BFD /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Measurement.m; path = Model/DataModel/Measurement.m; sourceTree = "<group>"; };
+		CE7DEC771BD5E2BC00529BFD /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		CE7DEC781BD5E2EE00529BFD /* Model2ToModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = Model2ToModel3.xcmappingmodel; path = Model/DataModel/Model2ToModel3.xcmappingmodel; sourceTree = "<group>"; };
+		CE7DEC7A1BD5E31C00529BFD /* Amount+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Amount+CoreDataProperties.h"; path = "Model/DataModel/Amount+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CE7DEC7B1BD5E31C00529BFD /* Amount+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Amount+CoreDataProperties.m"; path = "Model/DataModel/Amount+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CE7DEC7C1BD5E31C00529BFD /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Amount.h; path = Model/DataModel/Amount.h; sourceTree = "<group>"; };
+		CE7DEC7D1BD5E31C00529BFD /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Amount.m; path = Model/DataModel/Amount.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6EF51A1BD4D61F0025CD67 /* Model.xcdatamodeld */,
+				CE7DEC781BD5E2EE00529BFD /* Model2ToModel3.xcmappingmodel */,
 				CE6EF51D1BD4E0970025CD67 /* Item+CoreDataProperties.h */,
 				CE6EF51E1BD4E0970025CD67 /* Item+CoreDataProperties.m */,
 				CE6EF51F1BD4E0970025CD67 /* Item.h */,
@@ -289,6 +299,10 @@
 				CE7DEC721BD5E14C00529BFD /* Measurement+CoreDataProperties.m */,
 				CE7DEC731BD5E14C00529BFD /* Measurement.h */,
 				CE7DEC741BD5E14C00529BFD /* Measurement.m */,
+				CE7DEC7A1BD5E31C00529BFD /* Amount+CoreDataProperties.h */,
+				CE7DEC7B1BD5E31C00529BFD /* Amount+CoreDataProperties.m */,
+				CE7DEC7C1BD5E31C00529BFD /* Amount.h */,
+				CE7DEC7D1BD5E31C00529BFD /* Amount.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -426,12 +440,15 @@
 				CE7DEC751BD5E14C00529BFD /* Measurement+CoreDataProperties.m in Sources */,
 				CE6EF5211BD4E0970025CD67 /* Item+CoreDataProperties.m in Sources */,
 				CE6EF5081BD4BE3D0025CD67 /* ViewController.m in Sources */,
+				CE7DEC791BD5E2EE00529BFD /* Model2ToModel3.xcmappingmodel in Sources */,
+				CE7DEC7E1BD5E31C00529BFD /* Amount+CoreDataProperties.m in Sources */,
 				CE6EF5051BD4BDA10025CD67 /* main.m in Sources */,
 				CE6EF51C1BD4D61F0025CD67 /* Model.xcdatamodeld in Sources */,
 				CE7DEC761BD5E14C00529BFD /* Measurement.m in Sources */,
 				CE6EF5111BD4C5050025CD67 /* CoreDataHelper.m in Sources */,
 				CE6EF5221BD4E0970025CD67 /* Item.m in Sources */,
 				CE6EF4F51BD4BCB90025CD67 /* AppDelegate.m in Sources */,
+				CE7DEC7F1BD5E31C00529BFD /* Amount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,10 +701,11 @@
 		CE6EF51A1BD4D61F0025CD67 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CE7DEC771BD5E2BC00529BFD /* Model 3.xcdatamodel */,
 				CE7DEC6A1BD5DF9D00529BFD /* Model 2.xcdatamodel */,
 				CE6EF51B1BD4D61F0025CD67 /* Model.xcdatamodel */,
 			);
-			currentVersion = CE7DEC6A1BD5DF9D00529BFD /* Model 2.xcdatamodel */;
+			currentVersion = CE7DEC771BD5E2BC00529BFD /* Model 3.xcdatamodel */;
 			name = Model.xcdatamodeld;
 			path = Model/DataModel/Model.xcdatamodeld;
 			sourceTree = "<group>";
