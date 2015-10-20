@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="collected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="listed" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="New Item" indexed="YES" syncable="YES"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="1" syncable="YES"/>
+    </entity>
+    <entity name="Measurement" representedClassName="Measurement" syncable="YES">
+        <attribute name="abc" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-5427" positionY="-4410" width="173" height="118"/>
+        <element name="Measurement" positionX="-5391" positionY="-4365" width="128" height="60"/>
+    </elements>
+</model>
