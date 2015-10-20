@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "Item.h"
-#import "Amount.h"
+#import "Unit.h"
 
 #define debug 1
 
@@ -55,16 +55,16 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Amount"];
-    [request setFetchLimit:3];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    [request setFetchLimit:5];
     NSError *error = nil;
     NSArray *fetched = [_coreDataHelper.context executeFetchRequest:request error:&error];
     if (error) {
         NSLog(@"Error: %@", error);
     }
     else{
-        for (Amount *amount in fetched) {
-            NSLog(@"fetch: %@", amount.xyz);
+        for (Unit *unit in fetched) {
+            NSLog(@"fetch: %@", unit.name);
         }
     }
 }

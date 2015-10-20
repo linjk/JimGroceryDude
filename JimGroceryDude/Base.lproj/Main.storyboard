@@ -72,6 +72,54 @@
             </objects>
             <point key="canvasLocation" x="1036" y="429"/>
         </scene>
+        <!--MigrationVC-->
+        <scene sceneID="h3t-pf-L8j">
+            <objects>
+                <viewController storyboardIdentifier="migration" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Ea-kw-cYu" customClass="MigrationVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="76o-Ti-kta"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Ym-xQ-t2o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PIi-4J-XIs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migration Progress 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYz-eN-PPc">
+                                <rect key="frame" x="200" y="149" width="201" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="201" id="Mii-pu-00y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K5H-dC-hkM">
+                                <rect key="frame" x="124" y="224" width="352" height="2"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="352" id="lKM-rL-qeR"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K5H-dC-hkM" firstAttribute="top" secondItem="yYz-eN-PPc" secondAttribute="bottom" constant="54" id="Ie3-NC-i9R"/>
+                            <constraint firstItem="yYz-eN-PPc" firstAttribute="top" secondItem="76o-Ti-kta" secondAttribute="bottom" constant="129" id="QJU-1D-vTh"/>
+                            <constraint firstItem="yYz-eN-PPc" firstAttribute="centerX" secondItem="PIi-4J-XIs" secondAttribute="centerX" id="dsc-Sq-Rtk"/>
+                            <constraint firstItem="K5H-dC-hkM" firstAttribute="centerX" secondItem="yYz-eN-PPc" secondAttribute="centerX" id="gZP-8i-KDa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="yYz-eN-PPc" id="6o8-8b-ROl"/>
+                        <outlet property="progressView" destination="yYz-eN-PPc" id="Y8D-8I-Hwu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WQf-yy-uTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713" y="-348"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qzz-PK-00S">
             <objects>
