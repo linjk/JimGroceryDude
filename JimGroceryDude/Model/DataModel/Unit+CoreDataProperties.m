@@ -14,5 +14,6 @@
 @implementation Unit (CoreDataProperties)
 
 @dynamic name;
+@dynamic items;
 
 @end

@@ -6,12 +6,14 @@
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="New Item" indexed="YES" syncable="YES"/>
         <attribute name="photoData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="1" syncable="YES"/>
+        <relationship name="unit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Unit" inverseName="items" inverseEntity="Unit" syncable="YES"/>
     </entity>
     <entity name="Unit" representedClassName="Unit" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="unit" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-5427" positionY="-4410" width="173" height="118"/>
-        <element name="Unit" positionX="-5130" positionY="-4410" width="128" height="58"/>
+        <element name="Item" positionX="-5409" positionY="-4401" width="173" height="133"/>
+        <element name="Unit" positionX="-5013" positionY="-4401" width="128" height="73"/>
     </elements>
 </model>

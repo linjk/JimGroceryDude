@@ -2,12 +2,14 @@
 //  Item.h
 //  JimGroceryDude
 //
-//  Created by hodi on 10/19/15.
+//  Created by hodi on 10/20/15.
 //  Copyright © 2015 LinJK. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
+@class Unit;
 
 NS_ASSUME_NONNULL_BEGIN
 

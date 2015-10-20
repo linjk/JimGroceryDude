@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.m
 //  JimGroceryDude
 //
-//  Created by hodi on 10/19/15.
+//  Created by hodi on 10/20/15.
 //  Copyright © 2015 LinJK. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,10 +13,11 @@
 
 @implementation Item (CoreDataProperties)
 
-@dynamic name;
-@dynamic quantity;
-@dynamic photoData;
-@dynamic listed;
 @dynamic collected;
+@dynamic listed;
+@dynamic name;
+@dynamic photoData;
+@dynamic quantity;
+@dynamic unit;
 
 @end

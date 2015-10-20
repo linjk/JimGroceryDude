@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "Item.h"
+#import "Unit.h"
 
 #define debug 1
 
@@ -54,7 +55,26 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    //
+    Unit *kg = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:[[self cdh] context]];
+    Item *oranges = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    Item *bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    kg.name = @"kg";
+    oranges.name = @"Oranges";
+    bananas.name = @"bananas";
+    
+    oranges.quantity = [NSNumber numberWithInt:1];
+    bananas.quantity = [NSNumber numberWithInt:4];
+    
+    oranges.listed = [NSNumber numberWithBool:YES];
+    bananas.listed = [NSNumber numberWithBool:YES];
+    
+    oranges.unit = kg;
+    bananas.unit = kg;
+    
+    NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
+    NSLog(@"Inserted %@%@ %@", bananas.quantity, bananas.unit.name, bananas.name);
+    
+    [[self cdh] saveContext];
 }
 
 -(CoreDataHelper *)cdh{

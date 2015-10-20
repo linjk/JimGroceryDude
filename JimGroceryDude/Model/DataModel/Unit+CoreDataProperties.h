@@ -16,6 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Unit (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *name;
+@property (nullable, nonatomic, retain) NSSet<Item *> *items;
+
+@end
+
+@interface Unit (CoreDataGeneratedAccessors)
+
+- (void)addItemsObject:(Item *)value;
+- (void)removeItemsObject:(Item *)value;
+- (void)addItems:(NSSet<Item *> *)values;
+- (void)removeItems:(NSSet<Item *> *)values;
 
 @end
 
