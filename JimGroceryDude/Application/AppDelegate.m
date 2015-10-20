@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "Item.h"
+#import "Measurement.h"
 
 #define debug 1
 
@@ -54,7 +55,12 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    //
+    for (int i =1; i < 10; i++) {
+        Measurement *newMeasurement = [NSEntityDescription insertNewObjectForEntityForName:@"Measurement" inManagedObjectContext:_coreDataHelper.context];
+        newMeasurement.abc = [NSString stringWithFormat:@"-->> Lost Of Data: x%i", i];
+        NSLog(@"Insert %@", newMeasurement.abc);
+    }
+    [_coreDataHelper saveContext];
 }
 
 -(CoreDataHelper *)cdh{
