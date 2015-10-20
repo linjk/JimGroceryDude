@@ -80,13 +80,13 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
         return;
     }
     
-    BOOL useMigrationManager = YES;
+    BOOL useMigrationManager = NO;
     if (useMigrationManager && [self isMigrationNecessaryForStore:[self storeURL]]) {
         [self performBackgroundManagedMigrationForStore:[self storeURL]];
     }
     else{
         NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                  NSInferMappingModelAutomaticallyOption:@NO,
+                                  NSInferMappingModelAutomaticallyOption:@YES,
                                   @"journal_mode":@"DELETE"};
         NSError *error = nil;
         
