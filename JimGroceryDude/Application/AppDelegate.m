@@ -55,26 +55,31 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    Unit *kg = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:[[self cdh] context]];
-    Item *oranges = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
-    Item *bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
-    kg.name = @"kg";
-    oranges.name = @"Oranges";
-    bananas.name = @"bananas";
+    [self showUnitAndItemCount];
+}
+
+-(void)showUnitAndItemCount{
+    //List how many items there are in the database
+    NSFetchRequest *items = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSError *itemsError = nil;
+    NSArray *fecthItems = [[[self cdh] context] executeFetchRequest:items error:&itemsError];
+    if (!fecthItems) {
+        NSLog(@"itemsError: %@", itemsError);
+    }
+    else{
+        NSLog(@"Found %lu item(s).", (unsigned long)[fecthItems count]);
+    }
     
-    oranges.quantity = [NSNumber numberWithInt:1];
-    bananas.quantity = [NSNumber numberWithInt:4];
-    
-    oranges.listed = [NSNumber numberWithBool:YES];
-    bananas.listed = [NSNumber numberWithBool:YES];
-    
-    oranges.unit = kg;
-    bananas.unit = kg;
-    
-    NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
-    NSLog(@"Inserted %@%@ %@", bananas.quantity, bananas.unit.name, bananas.name);
-    
-    [[self cdh] saveContext];
+    //List how many units there are in the database
+    NSFetchRequest *units = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    NSError *unitsError = nil;
+    NSArray * fetchedUnits = [[[self cdh] context] executeFetchRequest:units error:&unitsError];
+    if (!fetchedUnits) {
+        NSLog(@"itemsError: %@", unitsError);
+    }
+    else{
+        NSLog(@"Found %lu item(s).", (unsigned long)[fetchedUnits count]);
+    }
 }
 
 -(CoreDataHelper *)cdh{
