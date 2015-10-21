@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "Unit.h"
 #import "AppDelegate.h"
+#import "ItemVC.h"
 
 @interface PrepareTVC ()
 
@@ -151,14 +152,34 @@
         item.listed = [NSNumber numberWithBool:NO];
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+#pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    ItemVC *itemVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"Add Item Segue"]) {
+        CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:cdh.context];
+        NSError *error = nil;
+        if (![cdh.context obtainPermanentIDsForObjects:[NSArray arrayWithObject:newItem] error:&error]) {
+            NSLog(@"Couldn't obtain a permanent ID for object %@", error);
+        }
+        itemVC.selectedID = newItem.objectID;
+    }
+    else{
+        NSLog(@"Unidentified Segue Attepmted!");
+    }
 }
-*/
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    ItemVC *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemVC"];
+    itemVC.selectedID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    [self.navigationController pushViewController:itemVC animated:YES];
+}
 
 @end

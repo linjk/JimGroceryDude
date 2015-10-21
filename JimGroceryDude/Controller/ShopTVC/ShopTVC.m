@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "Unit.h"
 #import "AppDelegate.h"
+#import "ItemVC.h"
 
 @interface ShopTVC ()
 
@@ -124,14 +125,14 @@
         [alert show];
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    ItemVC *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemVC"];
+    itemVC.selectedID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    [self.navigationController pushViewController:itemVC animated:YES];
 }
-*/
 
 @end

@@ -31,6 +31,7 @@
 		CE80C3611BD73991004D4B3B /* PrepareTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3601BD73991004D4B3B /* PrepareTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE80C3651BD7658A004D4B3B /* ShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3641BD7658A004D4B3B /* ShopTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3671BD76638004D4B3B /* CoreDataTVC.m */; settings = {ASSET_TAGS = (); }; };
+		CE80C36B1BD7786C004D4B3B /* ItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C36A1BD7786C004D4B3B /* ItemVC.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		CE80C3641BD7658A004D4B3B /* ShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopTVC.m; path = Controller/ShopTVC/ShopTVC.m; sourceTree = "<group>"; };
 		CE80C3661BD76638004D4B3B /* CoreDataTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTVC.h; path = Base/CoreDataTVC.h; sourceTree = "<group>"; };
 		CE80C3671BD76638004D4B3B /* CoreDataTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTVC.m; path = Base/CoreDataTVC.m; sourceTree = "<group>"; };
+		CE80C3691BD7786C004D4B3B /* ItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemVC.h; path = Controller/ItemVC.h; sourceTree = "<group>"; };
+		CE80C36A1BD7786C004D4B3B /* ItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemVC.m; path = Controller/ItemVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 				CE80C35E1BD7395B004D4B3B /* PrepareVC */,
 				CE7DEC801BD5E78800529BFD /* MigrationVC.h */,
 				CE7DEC811BD5E78800529BFD /* MigrationVC.m */,
+				CE80C3691BD7786C004D4B3B /* ItemVC.h */,
+				CE80C36A1BD7786C004D4B3B /* ItemVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE80C3521BD7226A004D4B3B /* Item.m in Sources */,
+				CE80C36B1BD7786C004D4B3B /* ItemVC.m in Sources */,
 				CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */,
 				CE80C35A1BD7226A004D4B3B /* Unit.m in Sources */,
 				CE80C3561BD7226A004D4B3B /* LocationAtHome.m in Sources */,
