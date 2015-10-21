@@ -88,7 +88,10 @@
     }
     
     if (!_coreDataHelper) {
-        _coreDataHelper = [CoreDataHelper new];
+        static dispatch_once_t predicate;
+        dispatch_once(&predicate, ^{
+            _coreDataHelper = [CoreDataHelper new];
+        });
         [_coreDataHelper setupCoreData];
     }
     
