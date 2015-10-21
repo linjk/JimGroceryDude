@@ -55,7 +55,7 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    [self showUnitAndItemCount];
+    //
 }
 
 -(void)showUnitAndItemCount{

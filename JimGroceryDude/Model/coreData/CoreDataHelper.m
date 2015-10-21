@@ -125,6 +125,7 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
         }
         else{
             NSLog(@"Failed to save _context: %@", error);
+            [self showValidationError:error];
         }
     }
     else{
@@ -268,6 +269,46 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
             });
         }
     });
+}
+
+#pragma mark - VALIDATION ERROR HANDLING
+-(void)showValidationError:(NSError *)anError{
+    if (anError && [anError.domain isEqualToString:@"NSCocoaErrorDomain"]) {
+        NSArray *errors = nil; //holds all errors
+        NSString *txt = @"";   //The error message text of the alert
+        
+        //populate array with error(s)
+        if (anError.code == NSValidationMultipleErrorsError) {
+            errors = [anError.userInfo objectForKey:NSDetailedErrorsKey];
+        }
+        else{
+            errors = [NSArray arrayWithObject:anError];
+        }
+        //Display the error(s)
+        if (errors && errors.count>0) {
+            //Build error message text based on errors.
+            for (NSError *error in errors) {
+                NSString *entity = [[[error.userInfo objectForKey:@"NSValidationErrorObject"] entity] name];
+                NSString *property = [error.userInfo objectForKey:@"NSValidationErrorKey"];
+                
+                switch (error.code) {
+                    case NSValidationRelationshipDeniedDeleteError:
+                        txt = [txt stringByAppendingFormat:@"%@ delete was denied because there are associated %@\n(Error code %li)\n\n", entity, property, (long)error.code];
+                        break;
+                    
+                    case NSValidationRelationshipLacksMinimumCountError:
+                        txt = [txt stringByAppendingFormat:@"the '%@' relationShip count is too small (Code %li)", property, (long)error.code];
+                        break;
+                        
+                    default:
+                        txt = [txt stringByAppendingFormat:@"Unhandled error code %li in showValidationError methos.", (long)error.code];
+                        break;
+                }
+            }
+            //display alert message
+            [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:txt delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        }
+    }
 }
 
 @end
