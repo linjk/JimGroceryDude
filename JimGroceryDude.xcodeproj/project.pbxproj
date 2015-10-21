@@ -219,6 +219,7 @@
 		CE6EF4F81BD4BCD60025CD67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE80C3621BD74548004D4B3B /* ShopTVC */,
 				CE80C35E1BD7395B004D4B3B /* PrepareVC */,
 				CE6EF5061BD4BE3D0025CD67 /* ViewController.h */,
 				CE6EF5071BD4BE3D0025CD67 /* ViewController.m */,
@@ -348,6 +349,13 @@
 				CE80C3601BD73991004D4B3B /* PrepareTVC.m */,
 			);
 			name = PrepareVC;
+			sourceTree = "<group>";
+		};
+		CE80C3621BD74548004D4B3B /* ShopTVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ShopTVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -75,11 +75,41 @@
     
     return nil;//do not need a section index.
 }
-#pragma mark INTERACTION
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Item *deleteTarget = [self.frc objectAtIndexPath:indexPath];
+        [self.frc.managedObjectContext deleteObject:deleteTarget];
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    NSManagedObjectID *itemid = [[self.frc objectAtIndexPath:indexPath] objectID];
+    Item *item = (Item *)[self.frc.managedObjectContext existingObjectWithID:itemid error:nil];
+    
+    if ([item.listed boolValue]) {
+        item.listed = [NSNumber numberWithBool:NO];
+    }
+    else{
+        item.listed = [NSNumber numberWithBool:YES];
+        item.collected = [NSNumber numberWithBool:NO];
+    }
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark INTERACTION
+
 
 /*
 #pragma mark - Navigation

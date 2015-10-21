@@ -25,11 +25,12 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="unit" inverseEntity="Item" syncable="YES"/>
     </entity>
+    <fetchRequest name="ShoppingList" entity="Item" predicateString="listed == 1"/>
     <elements>
         <element name="Item" positionX="-5393" positionY="-4068" width="173" height="163"/>
-        <element name="Unit" positionX="-5094" positionY="-4123" width="128" height="73"/>
         <element name="Location" positionX="-5501" positionY="-4401" width="128" height="58"/>
         <element name="LocationAtHome" positionX="-5625" positionY="-4248" width="128" height="73"/>
         <element name="LocationAtShop" positionX="-5375" positionY="-4245" width="128" height="73"/>
+        <element name="Unit" positionX="-5094" positionY="-4123" width="128" height="73"/>
     </elements>
 </model>
