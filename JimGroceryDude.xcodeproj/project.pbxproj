@@ -14,7 +14,6 @@
 		CE6EF4F11BD4BBF90025CD67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6EF4EF1BD4BBF90025CD67 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CE6EF4F51BD4BCB90025CD67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF4F41BD4BCB90025CD67 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		CE6EF5051BD4BDA10025CD67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5031BD4BDA10025CD67 /* main.m */; settings = {ASSET_TAGS = (); }; };
-		CE6EF5081BD4BE3D0025CD67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5071BD4BE3D0025CD67 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CE6EF50C1BD4C41A0025CD67 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6EF50B1BD4C41A0025CD67 /* CoreData.framework */; };
 		CE6EF5111BD4C5050025CD67 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF5101BD4C5050025CD67 /* CoreDataHelper.m */; settings = {ASSET_TAGS = (); }; };
 		CE6EF51C1BD4D61F0025CD67 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6EF51A1BD4D61F0025CD67 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
@@ -29,9 +28,9 @@
 		CE80C3581BD7226A004D4B3B /* LocationAtShop.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C34C1BD7226A004D4B3B /* LocationAtShop.m */; settings = {ASSET_TAGS = (); }; };
 		CE80C3591BD7226A004D4B3B /* Unit+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C34E1BD7226A004D4B3B /* Unit+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CE80C35A1BD7226A004D4B3B /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3501BD7226A004D4B3B /* Unit.m */; settings = {ASSET_TAGS = (); }; };
-		CE80C35D1BD725D8004D4B3B /* CoreDataTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C35C1BD725D8004D4B3B /* CoreDataTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE80C3611BD73991004D4B3B /* PrepareTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3601BD73991004D4B3B /* PrepareTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE80C3651BD7658A004D4B3B /* ShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3641BD7658A004D4B3B /* ShopTVC.m */; settings = {ASSET_TAGS = (); }; };
+		CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C3671BD76638004D4B3B /* CoreDataTVC.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +64,6 @@
 		CE6EF4F31BD4BCB90025CD67 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Application/AppDelegate.h; sourceTree = "<group>"; };
 		CE6EF4F41BD4BCB90025CD67 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Application/AppDelegate.m; sourceTree = "<group>"; };
 		CE6EF5031BD4BDA10025CD67 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Application/main.m; sourceTree = "<group>"; };
-		CE6EF5061BD4BE3D0025CD67 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
-		CE6EF5071BD4BE3D0025CD67 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
 		CE6EF50B1BD4C41A0025CD67 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CE6EF50F1BD4C5050025CD67 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = Model/coreData/CoreDataHelper.h; sourceTree = "<group>"; };
 		CE6EF5101BD4C5050025CD67 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = Model/coreData/CoreDataHelper.m; sourceTree = "<group>"; };
@@ -99,12 +96,12 @@
 		CE80C34E1BD7226A004D4B3B /* Unit+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Unit+CoreDataProperties.m"; path = "Model/DataModel/Unit+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CE80C34F1BD7226A004D4B3B /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = Model/DataModel/Unit.h; sourceTree = "<group>"; };
 		CE80C3501BD7226A004D4B3B /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = Model/DataModel/Unit.m; sourceTree = "<group>"; };
-		CE80C35B1BD725D8004D4B3B /* CoreDataTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTVC.h; path = Controller/CoreDataTVC.h; sourceTree = "<group>"; };
-		CE80C35C1BD725D8004D4B3B /* CoreDataTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTVC.m; path = Controller/CoreDataTVC.m; sourceTree = "<group>"; };
 		CE80C35F1BD73991004D4B3B /* PrepareTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrepareTVC.h; path = Controller/PrepareTVC/PrepareTVC.h; sourceTree = "<group>"; };
 		CE80C3601BD73991004D4B3B /* PrepareTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrepareTVC.m; path = Controller/PrepareTVC/PrepareTVC.m; sourceTree = "<group>"; };
 		CE80C3631BD7658A004D4B3B /* ShopTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopTVC.h; path = Controller/ShopTVC/ShopTVC.h; sourceTree = "<group>"; };
 		CE80C3641BD7658A004D4B3B /* ShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopTVC.m; path = Controller/ShopTVC/ShopTVC.m; sourceTree = "<group>"; };
+		CE80C3661BD76638004D4B3B /* CoreDataTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTVC.h; path = Base/CoreDataTVC.h; sourceTree = "<group>"; };
+		CE80C3671BD76638004D4B3B /* CoreDataTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTVC.m; path = Base/CoreDataTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +212,8 @@
 		CE6EF4F71BD4BCC80025CD67 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CE80C3661BD76638004D4B3B /* CoreDataTVC.h */,
+				CE80C3671BD76638004D4B3B /* CoreDataTVC.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -224,12 +223,8 @@
 			children = (
 				CE80C3621BD74548004D4B3B /* ShopTVC */,
 				CE80C35E1BD7395B004D4B3B /* PrepareVC */,
-				CE6EF5061BD4BE3D0025CD67 /* ViewController.h */,
-				CE6EF5071BD4BE3D0025CD67 /* ViewController.m */,
 				CE7DEC801BD5E78800529BFD /* MigrationVC.h */,
 				CE7DEC811BD5E78800529BFD /* MigrationVC.m */,
-				CE80C35B1BD725D8004D4B3B /* CoreDataTVC.h */,
-				CE80C35C1BD725D8004D4B3B /* CoreDataTVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -494,8 +489,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE80C3521BD7226A004D4B3B /* Item.m in Sources */,
+				CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */,
 				CE80C35A1BD7226A004D4B3B /* Unit.m in Sources */,
-				CE6EF5081BD4BE3D0025CD67 /* ViewController.m in Sources */,
 				CE80C3561BD7226A004D4B3B /* LocationAtHome.m in Sources */,
 				CE80C3571BD7226A004D4B3B /* LocationAtShop+CoreDataProperties.m in Sources */,
 				CE80C3511BD7226A004D4B3B /* Item+CoreDataProperties.m in Sources */,
@@ -506,7 +501,6 @@
 				CE6EF51C1BD4D61F0025CD67 /* Model.xcdatamodeld in Sources */,
 				CE80C3551BD7226A004D4B3B /* LocationAtHome+CoreDataProperties.m in Sources */,
 				CE80C3541BD7226A004D4B3B /* Location.m in Sources */,
-				CE80C35D1BD725D8004D4B3B /* CoreDataTVC.m in Sources */,
 				CE80C3651BD7658A004D4B3B /* ShopTVC.m in Sources */,
 				CE6EF5111BD4C5050025CD67 /* CoreDataHelper.m in Sources */,
 				CE80C3581BD7226A004D4B3B /* LocationAtShop.m in Sources */,
