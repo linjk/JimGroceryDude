@@ -249,7 +249,7 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
     UIApplication *sa = [UIApplication sharedApplication];
     UINavigationController *nc = (UINavigationController *)sa.keyWindow.rootViewController;
     [nc presentViewController:self.migrationVC animated:YES completion:nil];
-    //Perform mifration in the background, so it doesn't freeze the UI.
+    //Perform migration in the background, so it doesn't freeze the UI.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) , ^{
         BOOL done = [self migrateStore:storeURL];
         if (done) {

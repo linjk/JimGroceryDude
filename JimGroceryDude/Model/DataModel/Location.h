@@ -1,5 +1,5 @@
 //
-//  Item.h
+//  Location.h
 //  JimGroceryDude
 //
 //  Created by hodi on 10/21/15.
@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class LocationAtHome, LocationAtShop, Unit;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Item : NSManagedObject
+@interface Location : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Item+CoreDataProperties.h"
+#import "Location+CoreDataProperties.h"
