@@ -42,6 +42,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="szP-KH-Ray">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="RQ6-M6-Saw">
+                            <connections>
+                                <action selector="clear:" destination="JFC-2E-a4e" id="HuC-9u-1mC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4F6-VK-FOQ">
                             <connections>
                                 <segue destination="OlK-HG-RfB" kind="show" identifier="Add Item Segue" id="ZNz-AZ-M6Y"/>

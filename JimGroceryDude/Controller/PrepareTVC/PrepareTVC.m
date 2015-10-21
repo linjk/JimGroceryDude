@@ -109,8 +109,48 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark INTERACTION
+-(IBAction)clear:(id)sender{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
+    NSFetchRequest *request = [cdh.model fetchRequestTemplateForName:@"ShoppingList"];
+    NSArray *shoppingList = [cdh.context executeFetchRequest:request error:nil];
+    
+    if (shoppingList.count > 0) {
+        self.clearConfirmActionSheet = [[UIActionSheet alloc] initWithTitle:@"Clear Entire Shopping List ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Clear" otherButtonTitles: nil];
+        [self.clearConfirmActionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nothing to clear" message:@"Add items to the shop tab by tapping them on the Prepare tab. Remove all items from the shop tab by clicking Clear on the Prepate tab." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    shoppingList = nil;
+}
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (actionSheet == self.clearConfirmActionSheet) {
+        if (buttonIndex == [actionSheet destructiveButtonIndex]) {
+            [self performSelector:@selector(clearList)];
+        }
+        else if (buttonIndex == [actionSheet cancelButtonIndex]){
+            [actionSheet dismissWithClickedButtonIndex:[actionSheet cancelButtonIndex] animated:YES];
+        }
+    }
+}
 
+-(void)clearList{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
+    }
+    CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
+    NSFetchRequest *request = [cdh.model fetchRequestTemplateForName:@"ShoppingList"];
+    NSArray *shoppingList = [cdh.context executeFetchRequest:request error:nil];
+    
+    for (Item *item in shoppingList) {
+        item.listed = [NSNumber numberWithBool:NO];
+    }
+}
 /*
 #pragma mark - Navigation
 
