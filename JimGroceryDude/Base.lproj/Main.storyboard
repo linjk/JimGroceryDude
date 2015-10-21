@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HYD-Eb-BpD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UtJ-Xx-uYJ">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Items-->
         <scene sceneID="hkp-ke-RoR">
             <objects>
-                <tableViewController id="JFC-2E-a4e" sceneMemberID="viewController">
+                <tableViewController id="JFC-2E-a4e" customClass="PrepareTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dS7-KT-00g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,12 +119,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQf-yy-uTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-713" y="-348"/>
+            <point key="canvasLocation" x="-534" y="-335"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Prepare-->
         <scene sceneID="qzz-PK-00S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYD-Eb-BpD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Prepare" image="Prepare" id="UYZ-ii-awJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="keC-6M-YeK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -139,5 +141,80 @@
             </objects>
             <point key="canvasLocation" x="-534" y="429"/>
         </scene>
+        <!--Grocery Dude-->
+        <scene sceneID="Pgb-v5-lSz">
+            <objects>
+                <tableViewController id="OyF-9S-8vZ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cYD-v3-7rO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Shop Cell" id="aM4-xj-sWf">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aM4-xj-sWf" id="PcT-Xh-NiU">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OyF-9S-8vZ" id="nXK-bv-3I6"/>
+                            <outlet property="delegate" destination="OyF-9S-8vZ" id="Crn-xr-dDF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Grocery Dude" id="fJ0-PC-LPa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jNb-DT-5XO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256" y="1181"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pGf-xZ-BTx">
+            <objects>
+                <tabBarController id="UtJ-Xx-uYJ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Xai-lY-xku">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HYD-Eb-BpD" kind="relationship" relationship="viewControllers" id="fid-3z-ZUV"/>
+                        <segue destination="l2t-a9-puw" kind="relationship" relationship="viewControllers" id="5pi-TJ-DSc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNJ-mU-9h7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1391" y="790"/>
+        </scene>
+        <!--Shop-->
+        <scene sceneID="VRY-9R-PtA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l2t-a9-puw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shop" image="Shop" id="Uiu-EW-Uzd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XLS-IZ-C9O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OyF-9S-8vZ" kind="relationship" relationship="rootViewController" id="3Rl-a3-mcj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adD-zL-6iH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-534" y="1181"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Prepare" width="32" height="32"/>
+        <image name="Shop" width="32" height="32"/>
+    </resources>
 </document>
