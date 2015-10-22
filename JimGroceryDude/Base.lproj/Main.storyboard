@@ -163,17 +163,17 @@
             </objects>
             <point key="canvasLocation" x="1036" y="429"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Shop Locations-->
         <scene sceneID="Hug-eW-xPO">
             <objects>
-                <tableViewController id="a5c-t3-v0V" sceneMemberID="viewController">
+                <tableViewController id="a5c-t3-v0V" customClass="LocationsAtShopTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1d0-Ym-a0F">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="TDS-MZ-c05">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationAtShop Cell" id="TDS-MZ-c05">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TDS-MZ-c05" id="bER-YI-w2I">
@@ -192,8 +192,12 @@
                             <outlet property="delegate" destination="a5c-t3-v0V" id="2aB-eQ-yxe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="L3H-pf-c4m">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="jj0-nL-adh"/>
+                    <navigationItem key="navigationItem" title="Shop Locations" id="L3H-pf-c4m">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="jj0-nL-adh">
+                            <connections>
+                                <action selector="done:" destination="a5c-t3-v0V" id="JBe-ih-rWA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="myf-At-ZU4">
                             <connections>
                                 <segue destination="yFZ-wm-URh" kind="show" identifier="Add Object Segue" id="dU2-og-yTl"/>
@@ -205,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="2597" y="1188"/>
         </scene>
-        <!--View Controller-->
+        <!--Shop Location-->
         <scene sceneID="G7w-Mp-nZh">
             <objects>
-                <viewController id="yFZ-wm-URh" sceneMemberID="viewController">
+                <viewController id="yFZ-wm-URh" customClass="LocationAtShopVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wga-8X-sCi"/>
                         <viewControllerLayoutGuide type="bottom" id="95V-BP-Hwt"/>
@@ -217,19 +221,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yfn-l5-M4s">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yfn-l5-M4s">
                                 <rect key="frame" x="20" y="82" width="560" height="48"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="rXW-fw-4qQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Enter the location an item is expected to be found at the shop. E.g. 'Produce Section' or 'Deli'." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC9-QB-8Od">
+                                <rect key="frame" x="20" y="171" width="560" height="91"/>
+                                <animations/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="PC9-QB-8Od" firstAttribute="trailing" secondItem="Yfn-l5-M4s" secondAttribute="trailing" id="8aF-ib-6Q0"/>
+                            <constraint firstItem="Yfn-l5-M4s" firstAttribute="top" secondItem="wga-8X-sCi" secondAttribute="bottom" constant="18" id="bbP-VQ-BNu"/>
+                            <constraint firstItem="PC9-QB-8Od" firstAttribute="top" secondItem="Yfn-l5-M4s" secondAttribute="bottom" constant="41" id="cBN-a8-nD6"/>
+                            <constraint firstItem="PC9-QB-8Od" firstAttribute="trailing" secondItem="TWI-sr-Iry" secondAttribute="trailingMargin" id="cNg-dg-A0j"/>
+                            <constraint firstItem="Yfn-l5-M4s" firstAttribute="leading" secondItem="TWI-sr-Iry" secondAttribute="leadingMargin" id="tjS-WM-Qzk"/>
+                            <constraint firstItem="Yfn-l5-M4s" firstAttribute="leading" secondItem="PC9-QB-8Od" secondAttribute="leading" id="ujE-zx-L8f"/>
+                            <constraint firstItem="95V-BP-Hwt" firstAttribute="top" secondItem="PC9-QB-8Od" secondAttribute="bottom" constant="338" id="vRc-JI-NHY"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jUe-EZ-Dbl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uu6-aZ-qwX"/>
+                    <navigationItem key="navigationItem" title="Shop Location" id="jUe-EZ-Dbl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uu6-aZ-qwX">
+                            <connections>
+                                <action selector="done:" destination="yFZ-wm-URh" id="e1y-tE-pox"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="Yfn-l5-M4s" id="jGf-2H-hXy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PX5-8s-4ne" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
