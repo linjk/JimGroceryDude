@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataHelper.h"
 #import "UnitPickerTF.h"
+#import "LocationAtHomePickerTF.h"
+#import "LocationAtShopPickerTF.h"
 
 @interface ItemVC : UIViewController <UITextFieldDelegate, CoreDataPickerTFDelegate>
 
@@ -21,4 +23,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
 
 @property (strong, nonatomic) IBOutlet UnitPickerTF *unitPickerTextField;
+@property (strong, nonatomic) IBOutlet LocationAtHomePickerTF *homeLocationPickerTextField;
+@property (strong, nonatomic) IBOutlet LocationAtShopPickerTF *shopLocationPickerTextField;
 @end

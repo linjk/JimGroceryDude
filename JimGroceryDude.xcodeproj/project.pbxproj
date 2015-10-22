@@ -40,6 +40,8 @@
 		CE8DEB171BD8809F00401637 /* LocationsAtShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB151BD8809F00401637 /* LocationsAtShopTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE8DEB1A1BD8851300401637 /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB191BD8851300401637 /* CoreDataPickerTF.m */; settings = {ASSET_TAGS = (); }; };
 		CE8DEB1E1BD88E0D00401637 /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB1D1BD88E0D00401637 /* UnitPickerTF.m */; settings = {ASSET_TAGS = (); }; };
+		CE8DEB211BD8B4ED00401637 /* LocationAtHomePickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB201BD8B4ED00401637 /* LocationAtHomePickerTF.m */; settings = {ASSET_TAGS = (); }; };
+		CE8DEB241BD8B52100401637 /* LocationAtShopPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB231BD8B52100401637 /* LocationAtShopPickerTF.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,10 @@
 		CE8DEB191BD8851300401637 /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataPickerTF.m; path = Base/CoreDataPickerTF.m; sourceTree = "<group>"; };
 		CE8DEB1C1BD88E0D00401637 /* UnitPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitPickerTF.h; path = Controller/PickerTextFields/UnitPickerTF.h; sourceTree = "<group>"; };
 		CE8DEB1D1BD88E0D00401637 /* UnitPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitPickerTF.m; path = Controller/PickerTextFields/UnitPickerTF.m; sourceTree = "<group>"; };
+		CE8DEB1F1BD8B4ED00401637 /* LocationAtHomePickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationAtHomePickerTF.h; path = Controller/PickerTextFields/LocationAtHomePickerTF.h; sourceTree = "<group>"; };
+		CE8DEB201BD8B4ED00401637 /* LocationAtHomePickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAtHomePickerTF.m; path = Controller/PickerTextFields/LocationAtHomePickerTF.m; sourceTree = "<group>"; };
+		CE8DEB221BD8B52100401637 /* LocationAtShopPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationAtShopPickerTF.h; path = Controller/PickerTextFields/LocationAtShopPickerTF.h; sourceTree = "<group>"; };
+		CE8DEB231BD8B52100401637 /* LocationAtShopPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAtShopPickerTF.m; path = Controller/PickerTextFields/LocationAtShopPickerTF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +437,10 @@
 			children = (
 				CE8DEB1C1BD88E0D00401637 /* UnitPickerTF.h */,
 				CE8DEB1D1BD88E0D00401637 /* UnitPickerTF.m */,
+				CE8DEB1F1BD8B4ED00401637 /* LocationAtHomePickerTF.h */,
+				CE8DEB201BD8B4ED00401637 /* LocationAtHomePickerTF.m */,
+				CE8DEB221BD8B52100401637 /* LocationAtShopPickerTF.h */,
+				CE8DEB231BD8B52100401637 /* LocationAtShopPickerTF.m */,
 			);
 			name = PickerTextFields;
 			sourceTree = "<group>";
@@ -567,6 +577,7 @@
 			files = (
 				CE80C3521BD7226A004D4B3B /* Item.m in Sources */,
 				CE8DEB101BD87C8F00401637 /* LocationAtHomeVC.m in Sources */,
+				CE8DEB211BD8B4ED00401637 /* LocationAtHomePickerTF.m in Sources */,
 				CE80C36B1BD7786C004D4B3B /* ItemVC.m in Sources */,
 				CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */,
 				CE8DEB1A1BD8851300401637 /* CoreDataPickerTF.m in Sources */,
@@ -577,6 +588,7 @@
 				CE80C3571BD7226A004D4B3B /* LocationAtShop+CoreDataProperties.m in Sources */,
 				CE80C3511BD7226A004D4B3B /* Item+CoreDataProperties.m in Sources */,
 				CE80C3531BD7226A004D4B3B /* Location+CoreDataProperties.m in Sources */,
+				CE8DEB241BD8B52100401637 /* LocationAtShopPickerTF.m in Sources */,
 				CE80C3591BD7226A004D4B3B /* Unit+CoreDataProperties.m in Sources */,
 				CE6EF5051BD4BDA10025CD67 /* main.m in Sources */,
 				CE80C3611BD73991004D4B3B /* PrepareTVC.m in Sources */,
