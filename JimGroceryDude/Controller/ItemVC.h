@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataHelper.h"
+#import "UnitPickerTF.h"
 
-@interface ItemVC : UIViewController <UITextFieldDelegate>
+@interface ItemVC : UIViewController <UITextFieldDelegate, CoreDataPickerTFDelegate>
 
 @property (nonatomic, strong) NSManagedObjectID *selectedID;
 
@@ -19,4 +20,5 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *quantityTextField;
 
+@property (strong, nonatomic) IBOutlet UnitPickerTF *unitPickerTextField;
 @end
