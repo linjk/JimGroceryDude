@@ -8,6 +8,7 @@
 
 #import "ItemVC.h"
 #import "Item.h"
+#import "Unit.h"
 #import "LocationAtHome.h"
 #import "LocationAtShop.h"
 #import "AppDelegate.h"
@@ -54,6 +55,11 @@
             self.nameTextField.text = @"";
         }
     }
+    
+    if (textField == self.unitPickerTextField) {
+        [_unitPickerTextField fetch];
+        [_unitPickerTextField.picker reloadAllComponents];
+    }
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     if (debug == 1) {
@@ -83,6 +89,9 @@
         Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedID error:nil];
         self.nameTextField.text = item.name;
         self.quantityTextField.text = item.quantity.stringValue;
+        
+        self.unitPickerTextField.text = item.unit.name;
+        self.unitPickerTextField.selectedObjectID = item.unit.objectID;
     }
 }
 
@@ -95,6 +104,9 @@
     [self hideKeyboardWhenBackgroundIsTapped];
     self.nameTextField.delegate = self;
     self.quantityTextField.delegate = self;
+    
+    self.unitPickerTextField.delegate = self;
+    self.unitPickerTextField.pickerDelegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -178,6 +190,38 @@
                 item.locationAtShop = locationAtShop;
             }
         }
+    }
+}
+
+#pragma mark PICKERS
+-(void)selectedObjectID:(NSManagedObjectID *)objectID changedForPickerTF:(CoreDataPickerTF *)pickerTF{
+    if (self.selectedID) {
+        CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
+        Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedID error:nil];
+        
+        NSError *error = nil;
+        if (pickerTF == self.unitPickerTextField) {
+            Unit *unit = (Unit *)[cdh.context existingObjectWithID:objectID error:&error];
+            item.unit = unit;
+            self.unitPickerTextField.text = item.unit.name;
+        }
+        [self refreshInterface];
+        if (error) {
+            NSLog(@"Error selecting object on picker: %@, %@", error, error.localizedDescription);
+        }
+    }
+}
+
+-(void)selectedObjectClearedForPickerTF:(CoreDataPickerTF *)pickerTF{
+    if (self.selectedID) {
+        CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
+        Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedID error:nil];
+        
+        if (pickerTF == self.unitPickerTextField) {
+            item.unit = nil;
+            self.unitPickerTextField.text = @"";
+        }
+        [self refreshInterface];
     }
 }
 

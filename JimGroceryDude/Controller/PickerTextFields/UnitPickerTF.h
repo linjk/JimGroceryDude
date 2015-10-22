@@ -10,4 +10,6 @@
 
 @interface UnitPickerTF : CoreDataPickerTF
 
+-(void)fetch;
+
 @end

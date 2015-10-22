@@ -38,6 +38,8 @@
 		CE8DEB111BD87C8F00401637 /* LocationsAtHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB0F1BD87C8F00401637 /* LocationsAtHomeTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE8DEB161BD8809F00401637 /* LocationAtShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB131BD8809F00401637 /* LocationAtShopVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE8DEB171BD8809F00401637 /* LocationsAtShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB151BD8809F00401637 /* LocationsAtShopTVC.m */; settings = {ASSET_TAGS = (); }; };
+		CE8DEB1A1BD8851300401637 /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB191BD8851300401637 /* CoreDataPickerTF.m */; settings = {ASSET_TAGS = (); }; };
+		CE8DEB1E1BD88E0D00401637 /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB1D1BD88E0D00401637 /* UnitPickerTF.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,10 @@
 		CE8DEB131BD8809F00401637 /* LocationAtShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAtShopVC.m; path = Controller/LocationAtShop/LocationAtShopVC.m; sourceTree = "<group>"; };
 		CE8DEB141BD8809F00401637 /* LocationsAtShopTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationsAtShopTVC.h; path = Controller/LocationAtShop/LocationsAtShopTVC.h; sourceTree = "<group>"; };
 		CE8DEB151BD8809F00401637 /* LocationsAtShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationsAtShopTVC.m; path = Controller/LocationAtShop/LocationsAtShopTVC.m; sourceTree = "<group>"; };
+		CE8DEB181BD8851300401637 /* CoreDataPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataPickerTF.h; path = Base/CoreDataPickerTF.h; sourceTree = "<group>"; };
+		CE8DEB191BD8851300401637 /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataPickerTF.m; path = Base/CoreDataPickerTF.m; sourceTree = "<group>"; };
+		CE8DEB1C1BD88E0D00401637 /* UnitPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitPickerTF.h; path = Controller/PickerTextFields/UnitPickerTF.h; sourceTree = "<group>"; };
+		CE8DEB1D1BD88E0D00401637 /* UnitPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitPickerTF.m; path = Controller/PickerTextFields/UnitPickerTF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +241,8 @@
 			children = (
 				CE80C3661BD76638004D4B3B /* CoreDataTVC.h */,
 				CE80C3671BD76638004D4B3B /* CoreDataTVC.m */,
+				CE8DEB181BD8851300401637 /* CoreDataPickerTF.h */,
+				CE8DEB191BD8851300401637 /* CoreDataPickerTF.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 		CE6EF4F81BD4BCD60025CD67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE8DEB1B1BD88DC800401637 /* PickerTextFields */,
 				CE8DEB0B1BD87C0A00401637 /* LocationAtShop */,
 				CE8DEB0A1BD87BFE00401637 /* LocationAtHome */,
 				CE8DEB031BD8677200401637 /* Units */,
@@ -417,6 +426,15 @@
 			name = LocationAtShop;
 			sourceTree = "<group>";
 		};
+		CE8DEB1B1BD88DC800401637 /* PickerTextFields */ = {
+			isa = PBXGroup;
+			children = (
+				CE8DEB1C1BD88E0D00401637 /* UnitPickerTF.h */,
+				CE8DEB1D1BD88E0D00401637 /* UnitPickerTF.m */,
+			);
+			name = PickerTextFields;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -551,6 +569,7 @@
 				CE8DEB101BD87C8F00401637 /* LocationAtHomeVC.m in Sources */,
 				CE80C36B1BD7786C004D4B3B /* ItemVC.m in Sources */,
 				CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */,
+				CE8DEB1A1BD8851300401637 /* CoreDataPickerTF.m in Sources */,
 				CE80C35A1BD7226A004D4B3B /* Unit.m in Sources */,
 				CE80C3561BD7226A004D4B3B /* LocationAtHome.m in Sources */,
 				CE8DEB061BD867E700401637 /* UnitsTVC.m in Sources */,
@@ -571,6 +590,7 @@
 				CE80C3581BD7226A004D4B3B /* LocationAtShop.m in Sources */,
 				CE7DEC821BD5E78800529BFD /* MigrationVC.m in Sources */,
 				CE6EF4F51BD4BCB90025CD67 /* AppDelegate.m in Sources */,
+				CE8DEB1E1BD88E0D00401637 /* UnitPickerTF.m in Sources */,
 				CE8DEB171BD8809F00401637 /* LocationsAtShopTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
