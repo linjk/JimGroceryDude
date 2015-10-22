@@ -232,7 +232,7 @@
                                     <constraint firstAttribute="width" constant="201" id="Mii-pu-00y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K5H-dC-hkM">
@@ -303,7 +303,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -390,7 +390,7 @@
         <!--Units-->
         <scene sceneID="aHf-hj-v2M">
             <objects>
-                <tableViewController id="GuU-4d-HbY" sceneMemberID="viewController">
+                <tableViewController id="GuU-4d-HbY" customClass="UnitsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="46X-hs-pgJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -419,7 +419,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Units" id="O6a-Mv-I85">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="VWr-KH-h3p"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="VWr-KH-h3p">
+                            <connections>
+                                <action selector="done:" destination="GuU-4d-HbY" id="5Sq-r5-ru5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Yx-Vb-Bil">
                             <connections>
                                 <segue destination="eed-Id-7C7" kind="show" identifier="Add Object Segue" id="7Ft-5t-Mm9">
@@ -436,7 +440,7 @@
         <!--Unit-->
         <scene sceneID="pIU-EA-gff">
             <objects>
-                <viewController id="eed-Id-7C7" sceneMemberID="viewController">
+                <viewController id="eed-Id-7C7" customClass="UnitVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vTG-YX-gPA"/>
                         <viewControllerLayoutGuide type="bottom" id="0sb-GD-n9q"/>
@@ -475,8 +479,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Unit" id="Hty-Sw-1Gi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bqw-iW-mcA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bqw-iW-mcA">
+                            <connections>
+                                <action selector="done:" destination="eed-Id-7C7" id="853-6x-N9v"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="FrA-cQ-NvU" id="Tae-uP-3zu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQ7-u4-LWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -603,8 +614,8 @@
         <image name="add_units" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GYC-jF-caH"/>
         <segue reference="Vdi-WP-SKX"/>
+        <segue reference="GYC-jF-caH"/>
         <segue reference="Fe2-FA-cHc"/>
     </inferredMetricsTieBreakers>
 </document>

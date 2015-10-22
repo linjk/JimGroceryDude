@@ -57,6 +57,7 @@
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
+    /*
     CoreDataHelper *cdh = [self cdh];
     NSArray *homeLocations = [NSArray arrayWithObjects:@"Fruit Bowl", @"Pantry", @"Nursery", @"Bathroom", nil];
     NSArray *shopLocations = [NSArray arrayWithObjects:@"Produce", @"Aisle 1", @"Aisle 2", @"Aisle 3", nil];
@@ -82,6 +83,7 @@
         i++;
     }
     [cdh saveContext];
+     */
 }
 
 -(void)showUnitAndItemCount{
