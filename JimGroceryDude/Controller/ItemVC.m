@@ -69,6 +69,8 @@
         [_shopLocationPickerTextField fetch];
         [_shopLocationPickerTextField.picker reloadAllComponents];
     }
+    
+    _activeField = textField;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     if (debug == 1) {
@@ -86,7 +88,7 @@
     else if (textField == self.quantityTextField){
         item.quantity = [NSNumber numberWithFloat:self.quantityTextField.text.floatValue];
     }
-    
+    _activeField = nil;
 }
 #pragma mark VIEW
 -(void)refreshInterface{
@@ -131,9 +133,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboradDidShow:) name:UIKeyboardDidShowNotification object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:self.view.window];
+    //
     [self ensureItemHomeLocationIsNotNull];
     [self ensureItemShopLocationIsNotNull];
     [self refreshInterface];
@@ -144,9 +146,9 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
-    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    //
     [self ensureItemHomeLocationIsNotNull];
     [self ensureItemShopLocationIsNotNull];
     CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
@@ -264,6 +266,31 @@
         
         [self refreshInterface];
     }
+}
+
+//处理picker出现时界面元素被挡住
+-(void)keyboradDidShow:(NSNotification *)n{
+    //Find top of keyboard input view
+    CGRect keyboardRect = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey]CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    CGFloat keyboardTop = keyboardRect.origin.y;
+    
+    //Resize scroll view
+    CGRect newScrollViewFrame = CGRectMake(0, 0, self.view.bounds.size.width, keyboardTop);
+    newScrollViewFrame.size.height = keyboardTop - self.view.bounds.origin.y;
+    [self.scrollView setFrame:newScrollViewFrame];
+    
+    //Scroll to the active Text-Field
+    [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+}
+
+-(void)keyboardWillHide:(NSNotification *)n{
+    CGRect defaultFrame = CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    //Reset ScrollView to the same size as the containing view
+    [self.scrollView setFrame:defaultFrame];
+    
+    //Scroll to the top again
+    [self.scrollView scrollRectToVisible:self.nameTextField.frame animated:YES];
 }
 
 @end

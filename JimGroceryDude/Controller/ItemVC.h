@@ -25,4 +25,7 @@
 @property (strong, nonatomic) IBOutlet UnitPickerTF *unitPickerTextField;
 @property (strong, nonatomic) IBOutlet LocationAtHomePickerTF *homeLocationPickerTextField;
 @property (strong, nonatomic) IBOutlet LocationAtShopPickerTF *shopLocationPickerTextField;
+
+@property (nonatomic, strong) IBOutlet UITextField *activeField;
+
 @end
