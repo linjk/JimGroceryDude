@@ -34,6 +34,8 @@
 		CE80C36B1BD7786C004D4B3B /* ItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE80C36A1BD7786C004D4B3B /* ItemVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE8DEB061BD867E700401637 /* UnitsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB051BD867E700401637 /* UnitsTVC.m */; settings = {ASSET_TAGS = (); }; };
 		CE8DEB091BD86CFE00401637 /* UnitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB081BD86CFE00401637 /* UnitVC.m */; settings = {ASSET_TAGS = (); }; };
+		CE8DEB101BD87C8F00401637 /* LocationAtHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB0D1BD87C8F00401637 /* LocationAtHomeVC.m */; settings = {ASSET_TAGS = (); }; };
+		CE8DEB111BD87C8F00401637 /* LocationsAtHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DEB0F1BD87C8F00401637 /* LocationsAtHomeTVC.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,10 @@
 		CE8DEB051BD867E700401637 /* UnitsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitsTVC.m; path = Controller/UnitsTVC/UnitsTVC.m; sourceTree = "<group>"; };
 		CE8DEB071BD86CFE00401637 /* UnitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitVC.h; path = Controller/UnitsTVC/UnitVC.h; sourceTree = "<group>"; };
 		CE8DEB081BD86CFE00401637 /* UnitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitVC.m; path = Controller/UnitsTVC/UnitVC.m; sourceTree = "<group>"; };
+		CE8DEB0C1BD87C8F00401637 /* LocationAtHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationAtHomeVC.h; path = Controller/LocationAtHome/LocationAtHomeVC.h; sourceTree = "<group>"; };
+		CE8DEB0D1BD87C8F00401637 /* LocationAtHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAtHomeVC.m; path = Controller/LocationAtHome/LocationAtHomeVC.m; sourceTree = "<group>"; };
+		CE8DEB0E1BD87C8F00401637 /* LocationsAtHomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationsAtHomeTVC.h; path = Controller/LocationAtHome/LocationsAtHomeTVC.h; sourceTree = "<group>"; };
+		CE8DEB0F1BD87C8F00401637 /* LocationsAtHomeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationsAtHomeTVC.m; path = Controller/LocationAtHome/LocationsAtHomeTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +236,9 @@
 		CE6EF4F81BD4BCD60025CD67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CE8DEB031BD8677200401637 /* UnitsTVC */,
+				CE8DEB0B1BD87C0A00401637 /* LocationAtShop */,
+				CE8DEB0A1BD87BFE00401637 /* LocationAtHome */,
+				CE8DEB031BD8677200401637 /* Units */,
 				CE80C3621BD74548004D4B3B /* ShopTVC */,
 				CE80C35E1BD7395B004D4B3B /* PrepareVC */,
 				CE7DEC801BD5E78800529BFD /* MigrationVC.h */,
@@ -370,7 +378,7 @@
 			name = ShopTVC;
 			sourceTree = "<group>";
 		};
-		CE8DEB031BD8677200401637 /* UnitsTVC */ = {
+		CE8DEB031BD8677200401637 /* Units */ = {
 			isa = PBXGroup;
 			children = (
 				CE8DEB041BD867E700401637 /* UnitsTVC.h */,
@@ -378,7 +386,25 @@
 				CE8DEB071BD86CFE00401637 /* UnitVC.h */,
 				CE8DEB081BD86CFE00401637 /* UnitVC.m */,
 			);
-			name = UnitsTVC;
+			name = Units;
+			sourceTree = "<group>";
+		};
+		CE8DEB0A1BD87BFE00401637 /* LocationAtHome */ = {
+			isa = PBXGroup;
+			children = (
+				CE8DEB0C1BD87C8F00401637 /* LocationAtHomeVC.h */,
+				CE8DEB0D1BD87C8F00401637 /* LocationAtHomeVC.m */,
+				CE8DEB0E1BD87C8F00401637 /* LocationsAtHomeTVC.h */,
+				CE8DEB0F1BD87C8F00401637 /* LocationsAtHomeTVC.m */,
+			);
+			name = LocationAtHome;
+			sourceTree = "<group>";
+		};
+		CE8DEB0B1BD87C0A00401637 /* LocationAtShop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LocationAtShop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE80C3521BD7226A004D4B3B /* Item.m in Sources */,
+				CE8DEB101BD87C8F00401637 /* LocationAtHomeVC.m in Sources */,
 				CE80C36B1BD7786C004D4B3B /* ItemVC.m in Sources */,
 				CE80C3681BD76638004D4B3B /* CoreDataTVC.m in Sources */,
 				CE80C35A1BD7226A004D4B3B /* Unit.m in Sources */,
@@ -529,6 +556,7 @@
 				CE80C3541BD7226A004D4B3B /* Location.m in Sources */,
 				CE80C3651BD7658A004D4B3B /* ShopTVC.m in Sources */,
 				CE6EF5111BD4C5050025CD67 /* CoreDataHelper.m in Sources */,
+				CE8DEB111BD87C8F00401637 /* LocationsAtHomeTVC.m in Sources */,
 				CE80C3581BD7226A004D4B3B /* LocationAtShop.m in Sources */,
 				CE7DEC821BD5E78800529BFD /* MigrationVC.m in Sources */,
 				CE6EF4F51BD4BCB90025CD67 /* AppDelegate.m in Sources */,
