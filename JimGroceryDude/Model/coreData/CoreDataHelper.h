@@ -15,14 +15,18 @@
 
 #import "MigrationVC.h"     //报告迁移进度
 
-@interface CoreDataHelper : NSObject
+@interface CoreDataHelper : NSObject<UIAlertViewDelegate, NSXMLParserDelegate>
 
 @property (nonatomic, readonly) NSManagedObjectContext       *context;
+@property (nonatomic, readonly) NSManagedObjectContext       *importContext;
 @property (nonatomic, readonly) NSManagedObjectModel         *model;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *coordinator;
 @property (nonatomic, readonly) NSPersistentStore            *store;
 
 @property (nonatomic, retain)   MigrationVC *migrationVC;
+
+@property (nonatomic, retain)   UIAlertView *importAlertView;
+@property (nonatomic, strong)   NSXMLParser *parser;
 
 -(void)setupCoreData;
 -(void)saveContext;

@@ -6,6 +6,7 @@
 //  Copyright © 2015 LinJK. All rights reserved.
 
 #import "CoreDataHelper.h"
+#import "CoreDataImporter.h"
 
 @implementation CoreDataHelper
 
@@ -69,6 +70,13 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
     
     [_context setPersistentStoreCoordinator:_coordinator];
     
+    //导入默认数据的上下文
+    _importContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    [_importContext performBlockAndWait:^{
+        [_importContext setPersistentStoreCoordinator:_coordinator];
+        [_importContext setUndoManager:nil];//default on iOS
+    }];
+    
     return self;
 }
 
@@ -103,12 +111,27 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
     }
 }
 
+-(void)setDefaultDataStoreAsInitialStore{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:self.storeURL.path]) {
+        NSURL *defaultDataURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"DefaultData" ofType:@"sqlite"]];
+        NSError *error = nil;
+        if (![fileManager copyItemAtURL:defaultDataURL toURL:self.storeURL error:&error]) {
+            NSLog(@"DefaultData.sqlite copy FAIL: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"A copy of DefaultData.sqlite was set as the initial store for %@", self.storeURL.path);
+        }
+    }
+}
+
 -(void)setupCoreData{
     if (debug == 1){
         NSLog(@"Running %@ '%@'...", self.class, NSStringFromSelector(_cmd));
     }
-    
+    [self setDefaultDataStoreAsInitialStore];
     [self loadStore];
+    [self checkIfDefaultDataNeedsImporting];
 }
 
 #pragma mark - SAVING
@@ -311,4 +334,132 @@ NSString *storeFilename = @"JimGroceryDude.sqlite";
     }
 }
 
+#pragma mark DEFAULT DATA IMPORT
+-(BOOL)isDefaultDataAlreadyImpotedForStoreWithURL:(NSURL *)url ofType:(NSString *)type{
+    NSError *error;
+    NSDictionary *dictionary = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:type URL:url error:&error];
+    
+    if (error) {
+        NSLog(@"Error reading persistent store metadata: %@", error.localizedDescription);
+    }
+    else{
+        NSNumber *defaultDataAlreadyImported = [dictionary valueForKey:@"DefaultDataImported"];
+        if (![defaultDataAlreadyImported boolValue]) {
+            NSLog(@"Default Data has NOT already been imported.");
+            return NO;
+        }
+    }
+    if (debug == 1) {
+        NSLog(@"Default Data HAS already been imported.");
+    }
+    return YES;
+}
+
+-(void)checkIfDefaultDataNeedsImporting{
+    if (![self isDefaultDataAlreadyImpotedForStoreWithURL:[self storeURL] ofType:NSSQLiteStoreType]) {
+        self.importAlertView = [[UIAlertView alloc] initWithTitle:@"Import Default Data?" message:@"If you've never used JimGroceryDude before then some default data might help you understand how to use it. Tap 'Import' to import default data. Tap 'Cancel' to skip the import, especially if you've done this before on other devices." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
+        [self.importAlertView show];
+    }
+}
+
+-(void)importFromXML:(NSURL *)url{
+    self.parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    self.parser.delegate = self;
+    
+    NSLog(@"*** Start Parse OF %@ ***", url.path);
+    [self.parser parse];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+    NSLog(@"*** End Parse OF %@   ***", url.path);
+}
+/**
+ *  防止重复导入数据处理
+ */
+-(void)setDefaultDataAsImportedForStore:(NSPersistentStore *)aStore{
+    //get metadata dictionary
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[[aStore metadata] copy]];
+    if (debug == 1) {
+        NSLog(@"__Store MetaData BEFORE changes__ \n %@", dictionary);
+    }
+    //edit metadata dictionary
+    [dictionary setObject:@YES forKey:@"DefaultDataImported"];
+    //set metadata dictionary
+    [self.coordinator setMetadata:dictionary forPersistentStore:aStore];
+    
+    if (debug == 1) {
+        NSLog(@"__Store MetaData AFTER changes__ \n %@", dictionary);
+    }
+}
+#pragma mark DELEGATE: UIAlertView
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView == self.importAlertView) {
+        if (buttonIndex == 1) {
+            NSLog(@"Default data imported approved by user.");
+            [_importContext performBlock:^{
+                //XML import
+                [self importFromXML:[[NSBundle mainBundle] URLForResource:@"DefaultData" withExtension:@"xml"]];
+            }];
+        }
+        else{
+            NSLog(@"Default DAta Import Cancelled bu User.");
+        }
+        [self setDefaultDataAsImportedForStore:_store];
+    }
+}
+
+#pragma mark - UNIQUE ATTRIBUTE SELECTION
+-(NSDictionary *)selectedUniqueAttributes{
+    NSMutableArray *entities = [NSMutableArray new];
+    NSMutableArray *attributes = [NSMutableArray new];
+    
+    //Select an attributes in each entity for uniqueness
+    [entities addObject:@"Item"];   [attributes addObject:@"name"];
+    [entities addObject:@"Unit"];   [attributes addObject:@"name"];
+    [entities addObject:@"LocationAtHome"];  [attributes addObject:@"storedIn"];
+    [entities addObject:@"LocationAtShop"];  [attributes addObject:@"aisle"];
+    
+    NSDictionary *dicrtionary = [NSDictionary dictionaryWithObjects:attributes forKeys:entities];
+    
+    return dicrtionary;
+}
+
+#pragma mark DELEGATE: NSXMLParser
+-(void)parser:(NSXMLParser *)parser parserErrorOccured:(NSError *)parserError{
+    if (debug == 1) {
+        NSLog(@"Parser Error: %@", parserError.localizedDescription);
+    }
+}
+
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
+    [self.importContext performBlockAndWait:^{
+        //STEP 1: Process only the 'item' element in the XML file
+        if ([elementName isEqualToString:@"item"]) {
+            //STEP 2: Prepare the Core Data Importer
+            CoreDataImporter *impoter = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
+            
+            //STEP 3a: Insert a unique 'Item' object
+            NSManagedObject *item = [impoter insertBasicObjectInTargetEntity:@"Item" targetEntityAttribute:@"name" sourceXMLAttribute:@"name" attributeDict:attributeDict context:_importContext];
+            //STEP 3b: Insert a unique 'Unit' object
+            NSManagedObject *unit = [impoter insertBasicObjectInTargetEntity:@"Unit" targetEntityAttribute:@"name" sourceXMLAttribute:@"unit" attributeDict:attributeDict context:_importContext];
+            //STEP 3c: Insert a unique 'LocationAtHome' object
+            NSManagedObject *locationAtHome = [impoter insertBasicObjectInTargetEntity:@"LocationAtHome" targetEntityAttribute:@"storedIn" sourceXMLAttribute:@"locationathome" attributeDict:attributeDict context:_importContext];
+            //STEP 3d: Insert a unique 'LocationAtShop' object
+            NSManagedObject *locationAtShop = [impoter insertBasicObjectInTargetEntity:@"LocationAtShop" targetEntityAttribute:@"aisle" sourceXMLAttribute:@"locationatshop" attributeDict:attributeDict context:_importContext];
+            //STEP 4: Manally add extra attribute values.
+            [item setValue:@NO forKey:@"listed"];
+            //STEP 5: Create relationShips
+            [item setValue:unit forKey:@"unit"];
+            [item setValue:locationAtHome forKey:@"locationAtHome"];
+            [item setValue:locationAtShop forKey:@"locationAtShop"];
+            
+            //STEP 6: Save new objects to the persistent store
+            [CoreDataImporter saveContext:_importContext];
+            
+            //STEP 7: Turn objects into faults to save memory.
+            [_importContext refreshObject:item mergeChanges:NO];
+            [_importContext refreshObject:unit mergeChanges:NO];
+            [_importContext refreshObject:locationAtHome mergeChanges:NO];
+            [_importContext refreshObject:locationAtShop mergeChanges:NO];
+        }
+    }];
+}
 @end
